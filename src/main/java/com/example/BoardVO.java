@@ -9,19 +9,7 @@ public class BoardVO {
     private String writer;
     private String content;
     private Date regdate;
-    private Date moddate;
-
-    private int cnt;
-    public Date getModdate() {
-        return moddate;
-    }
-
-    public void setModdate(Date moddate) {
-        this.moddate = moddate;
-    }
-
-
-
+     private int cnt;
 
     public int getSeq() {
         return seq;

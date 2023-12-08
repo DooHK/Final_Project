@@ -21,7 +21,6 @@ public class BoardController {
     public String addPost(){
         return "addpostform";
     }
-
     @RequestMapping(value="/addok", method = RequestMethod.POST)
     public String addPostOK(BoardVO vo){
         if(boardService.insertBoard(vo)==0)
