@@ -16,9 +16,10 @@
 <form action="addok" method = "post">
     <table id="edit">
         <tr><td>카테고리</td><td><input type="text" name = "category"/></td></tr>
-        <tr><td>제목</td><td><input type="text" name = "title"/></td></tr>
         <tr><td>글쓴이</td><td><input type="text" name = "writer"/></td></tr>
-        <tr><td>내용</td><td><textarea cols="50" rows="5" name ="content"></textarea></td></tr>
+        <tr><td>물건</td><td><input type="text" name = "title"/></td></tr>
+        <tr><td>가격</td><td><input type = "text" name ="price"></input></td></tr>
+        <tr><td>거래지역</td><td><input type="number" name = "area"/></td></tr>
     </table>
     <button type="button" onclick="location.href='list'">목록보기</button>
     <button type="submit">등록하기</button>

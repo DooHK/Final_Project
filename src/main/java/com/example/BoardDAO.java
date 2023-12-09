@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.BoardVO;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -17,24 +18,20 @@ import java.util.List;
 public class BoardDAO {
     @Autowired
     private JdbcTemplate template ;
+
+    @Autowired
+    SqlSession sqlsession;
     public int insertBoard(BoardVO vo){
-        String sql = "insert into BOARD(title, writer, content, category) values ("
-                +"'"+vo.getTitle()+"',"
-                +"'"+vo.getWriter()+"',"
-                +"'"+vo.getContent()+"',"
-                +"'"+vo.getCategory()+"')";
-        return template.update(sql);
+        int result = sqlsession.insert("Board.insertBoard",vo);
+        return result;
     }
     public int deleteBoard(int seq){
-        String spl = "delete from BOARD where seq = " + seq;
-        return template.update(spl);
+        int result = sqlsession.delete("Board.deleteBoard",seq);
+        return result;
     }
     public int updateBoard(BoardVO vo){
-        String sql = "update BOARD set title='" + vo.getTitle()+"',"
-                +"writer='"+vo.getWriter() + "',"
-                +"content='"+vo.getContent() + "',"
-                +"category='"+vo.getCategory() + "'where seq="+vo.getSeq();
-        return template.update(sql);
+        int result = sqlsession.update("Board.updateBoard",vo);
+        return result;
     }
     public BoardVO getBoard(int seq){
         String sql = "select * from BOARD where seq=" +seq;

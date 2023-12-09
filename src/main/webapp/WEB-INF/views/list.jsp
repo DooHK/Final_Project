@@ -46,9 +46,10 @@
 <tr>
     <th>Id</th>
     <th>Category</th>
-    <th>Title</th>
+    <th>Name</th>
     <th>Writer</th>
-    <th>Content</th>
+    <th>Area</th>
+    <th>Price</th>
     <th>Regdate</th>
     <th>Edit</th>
     <th>Delete</th>
@@ -58,10 +59,11 @@
 <c:forEach items="${list}" var="u">
     <tr>
         <td>${u.seq}</td>
-        <td>${u.category}</td>
-        <td>${u.title}</td>
         <td>${u.writer}</td>
-        <td>${u.content}</td>
+        <td>${u.category}</td>
+        <td>${u.name}</td>
+        <td>${u.price}</td>
+        <td>${u.area}</td>
         <td>${u.regdate}</td>
         <td><a href="editform/${u.seq}">글 수정</a></td>
         <td><a href="javascript:delete_ok('${u.seq}')">글 삭제</a> </td>
