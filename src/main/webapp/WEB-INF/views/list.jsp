@@ -44,13 +44,13 @@
 <h1>자유게시판</h1>
 <table id ='list' width="90%">
 <tr>
-    <th>Id</th>
-    <th>Category</th>
-    <th>Name</th>
-    <th>Writer</th>
-    <th>Area</th>
-    <th>Price</th>
-    <th>Regdate</th>
+    <th></th>
+    <th>카테고리</th>
+    <th>글쓴이</th>
+    <th>물건</th>
+    <th>가격</th>
+    <th>거래지역</th>
+    <th>작성일</th>
     <th>Edit</th>
     <th>Delete</th>
 
@@ -59,8 +59,8 @@
 <c:forEach items="${list}" var="u">
     <tr>
         <td>${u.seq}</td>
-        <td>${u.writer}</td>
         <td>${u.category}</td>
+        <td>${u.writer}</td>
         <td>${u.name}</td>
         <td>${u.price}</td>
         <td>${u.area}</td>
