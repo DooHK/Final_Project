@@ -42,6 +42,7 @@
 </head>
 <body>
 <h1>자유게시판</h1>
+<a href="${pageContext.request.contextPath}/login/logout">Log Out</a>
 <table id ='list' width="90%">
 <tr>
     <th></th>
@@ -51,6 +52,7 @@
     <th>가격</th>
     <th>거래지역</th>
     <th>작성일</th>
+    <th>View</th>
     <th>Edit</th>
     <th>Delete</th>
 
@@ -65,6 +67,7 @@
         <td>${u.price}</td>
         <td>${u.area}</td>
         <td>${u.regdate}</td>
+        <td><a href="view/${u.seq}">글 보기</a></td>
         <td><a href="editform/${u.seq}">글 수정</a></td>
         <td><a href="javascript:delete_ok('${u.seq}')">글 삭제</a> </td>
     </tr>

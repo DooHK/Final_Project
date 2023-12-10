@@ -34,11 +34,13 @@ public class BoardDAO {
         return result;
     }
     public BoardVO getBoard(int seq){
-        String sql = "select * from BOARD where seq=" +seq;
-        return template.queryForObject(sql,new BoardRowMapper());
+        //String sql = "select * from BOARD where seq=" +seq;
+        //return template.queryForObject(sql,new BoardRowMapper());
+        return sqlsession.selectOne("Board.getBoard",seq);
     }
     public List<BoardVO> getBoardList(){
-        String sql = "select * from BOARD order by regdate desc";
-        return template.query(sql,new BoardRowMapper());
+//        String sql = "select * from BOARD order by regdate desc";
+//        return template.query(sql,new BoardRowMapper());
+        return sqlsession.selectList("Board.getBoardList");
     }
 }

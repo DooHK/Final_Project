@@ -19,7 +19,7 @@
         <tr><td>글쓴이</td><td><input type="text" name = "writer"/></td></tr>
         <tr><td>물건</td><td><input type="text" name = "name"/></td></tr>
         <tr><td>가격</td><td><input type="number" name = "price"/></td></tr>
-        <tr><td>거래지역</td><td><input type = "text" name ="area"></input></td></tr>
+        <tr><td>거래지역</td><td><input type = "text" name ="area"></td></tr>
     </table>
     <button type="button" onclick="location.href='list'">목록보기</button>
     <button type="submit">등록하기</button>
