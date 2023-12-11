@@ -55,8 +55,7 @@ public class BoardController {
     @RequestMapping(value = "/view/{id}", method=RequestMethod.GET)
     public String viewPost(@PathVariable("id") int id, Model model){
         BoardVO boardVO = boardService.getBoard(id);
-        model.addAttribute("view",boardVO);
-        System.out.println("boardVO name : " + boardVO.getName());
+        model.addAttribute("post",boardVO);
         return "view";
     }
 
