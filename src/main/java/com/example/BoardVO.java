@@ -9,9 +9,14 @@ public class BoardVO {
     private String writer;
     private String area;
     private Date regdate;
-     private int cnt;
-     private int price;
+    private int price;
+    private String state;
+    private int manner;
 
+    public int getManner() {return manner;}
+    public void setManner(int manner) {this.manner = manner;}
+    public String getState() {return state;}
+    public void setState(String state) {this.state = state;}
     public String getName() {
         return name;
     }
@@ -45,12 +50,6 @@ public class BoardVO {
     }
     public void setRegdate(Date regdate) {
         this.regdate = regdate;
-    }
-    public int getCnt() {
-        return cnt;
-    }
-    public void setCnt(int cnt) {
-        this.cnt = cnt;
     }
     public String getCategory() {
         return category;

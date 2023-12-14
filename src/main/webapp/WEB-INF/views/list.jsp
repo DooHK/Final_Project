@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <c:set var="path" value ="${pageContext.request.contextPath}"/>
 <%--
   Created by IntelliJ IDEA.
@@ -46,12 +47,14 @@
 <table id ='list' width="90%">
 <tr>
     <th></th>
+    <th>거래상태</th>
     <th>카테고리</th>
     <th>글쓴이</th>
     <th>물건</th>
     <th>가격</th>
     <th>거래지역</th>
     <th>작성일</th>
+    <th>매너온도</th>
     <th>View</th>
     <th>Edit</th>
     <th>Delete</th>
@@ -61,12 +64,22 @@
 <c:forEach items="${list}" var="u">
     <tr>
         <td>${u.seq}</td>
+        <td>
+            <c:choose>
+                <c:when test="${u.state eq 'ing'}">거래중</c:when>
+                <c:when test="${u.state eq 'end'}">거래완료</c:when>
+                <c:otherwise>미입력</c:otherwise>
+            </c:choose>
+        </td>
         <td>${u.category}</td>
         <td>${u.writer}</td>
         <td>${u.name}</td>
         <td>${u.price}</td>
         <td>${u.area}</td>
-        <td>${u.regdate}</td>
+        <td>
+            <fmt:formatDate value="${u.regdate}" pattern="yyyy-MM-dd" />
+        </td>
+        <td>${u.manner}℃</td>
         <td><a href="view/${u.seq}">글 보기</a></td>
         <td><a href="editform/${u.seq}">글 수정</a></td>
         <td><a href="javascript:delete_ok('${u.seq}')">글 삭제</a> </td>

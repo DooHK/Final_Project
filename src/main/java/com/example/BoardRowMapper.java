@@ -16,6 +16,8 @@ class BoardRowMapper implements RowMapper<BoardVO> {
         vo.setCategory(rs.getString("category"));
         vo.setRegdate(rs.getDate("regdate"));
         vo.setPrice(rs.getInt("price"));
+        vo.setManner(rs.getInt("manner"));
+        vo.setState(rs.getString("state"));
         return vo;
     }
 }
