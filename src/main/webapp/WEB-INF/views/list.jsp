@@ -42,8 +42,8 @@
     </script>
 </head>
 <body>
-<h1>자유게시판</h1>
-<a href="${pageContext.request.contextPath}/login/logout">Log Out</a>
+<h1>중고거래게시판</h1>
+<button style="margin-bottom: 8px"><a href="${pageContext.request.contextPath}/login/logout">Log Out</a></button>
 <table id ='list' width="90%">
 <tr>
     <th></th>
@@ -71,7 +71,14 @@
                 <c:otherwise>미입력</c:otherwise>
             </c:choose>
         </td>
-        <td>${u.category}</td>
+        <td> <c:choose>
+            <c:when test="${u.category eq 'food'}">식품</c:when>
+            <c:when test="${u.category eq 'electric'}">전자기기</c:when>
+            <c:when test="${u.category eq 'cloth'}">의류</c:when>
+            <c:when test="${u.category eq 'furniture'}">가구</c:when>
+            <c:when test="${u.category eq 'etc'}">기타</c:when>
+            <c:otherwise>미입력</c:otherwise>
+        </c:choose></td>
         <td>${u.writer}</td>
         <td>${u.name}</td>
         <td>${u.price}</td>

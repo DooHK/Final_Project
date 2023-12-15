@@ -41,7 +41,13 @@
 
 <form action="addok" method = "post">
     <table id="list">
-        <tr><td>카테고리</td><td><input type="text" name = "category"/></td></tr>
+        <tr><td>카테고리</td><td><select name="category">
+            <option value="food">식품</option>
+            <option value="electric">전자기기</option>
+            <option value="cloth">의류</option>
+            <option value="furniture">가구</option>
+            <option value="etc">기타</option>
+        </select></td></tr>
         <tr><td>글쓴이</td><td><input type="text" name = "writer"/></td></tr>
         <tr><td>물건</td><td><input type="text" name = "name"/></td></tr>
         <tr><td>가격</td><td><input type="number" name = "price"/></td></tr>
@@ -51,6 +57,7 @@
     </table>
     <button type="button" onclick="location.href='list'">목록보기</button>
     <button type="submit">등록하기</button>
+    <button type="reset">내용지우기</button>
 </form>
 </body>
 </html>

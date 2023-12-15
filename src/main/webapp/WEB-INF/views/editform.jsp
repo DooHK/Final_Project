@@ -1,4 +1,5 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%--
   Created by IntelliJ IDEA.
   User: butyk
@@ -42,7 +43,56 @@
 <form:form modelAttribute="u" method="POST" action="../editok">
     <form:hidden path="seq"/>
     <table id="list">
-        <tr><td>카테고리</td><td><form:input path="category"/></td></tr>
+        <tr><td>카테고리</td>
+            <td>
+                <select name="category">
+                <c:choose>
+                    <c:when test="${u.category eq 'food'}">
+                        <option value="food" selected>식품</option>
+                        <option value="electric">전자기기</option>
+                        <option value="cloth">의류</option>
+                        <option value="furniture">가구</option>
+                        <option value="etc">기타</option>
+                    </c:when>
+                    <c:when test="${u.category eq 'electric'}">
+                        <option value="food">식품</option>
+                        <option value="electric" selected>전자기기</option>
+                        <option value="cloth">의류</option>
+                        <option value="furniture">가구</option>
+                        <option value="etc">기타</option>
+                    </c:when>
+                    <c:when test="${u.category eq 'cloth'}">
+                        <option value="food">식품</option>
+                        <option value="electric">전자기기</option>
+                        <option value="cloth" selected>의류</option>
+                        <option value="furniture">가구</option>
+                        <option value="etc">기타</option>
+                    </c:when>
+                    <c:when test="${u.category eq 'furniture'}">
+                        <option value="food">식품</option>
+                        <option value="electric">전자기기</option>
+                        <option value="cloth">의류</option>
+                        <option value="furniture" selected>가구</option>
+                        <option value="etc">기타</option>
+                    </c:when>
+                    <c:when test="${u.category eq 'etc'}">
+                        <option value="food">식품</option>
+                        <option value="electric">전자기기</option>
+                        <option value="cloth">의류</option>
+                        <option value="furniture">가구</option>
+                        <option value="etc" selected>기타</option>
+                    </c:when>
+                    <c:otherwise>
+                        <option value="food">식품</option>
+                        <option value="electric">전자기기</option>
+                        <option value="cloth">의류</option>
+                        <option value="furniture">가구</option>
+                        <option value="etc">기타</option>
+                    </c:otherwise>
+                </c:choose>
+                </select>
+            </td>
+        </tr>
         <tr><td>글쓴이</td><td><form:input path="writer"/></td></tr>
         <tr><td>물건</td><td><form:input path="name"/></td></tr>
         <tr><td>가격</td><td><form:input path="price"/></td></tr>

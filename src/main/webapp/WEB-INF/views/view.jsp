@@ -47,7 +47,20 @@
     String formattedRegdate = sdf.format(regdate);
 %>
 <table id="list">
-    <tr><td>카테고리</td><td><%=post.getCategory()%></td></tr>
+    <tr><td>카테고리</td><td><% if ("food".equals(post.getCategory())) {%>
+        식품
+        <% } else if ("electric".equals(post.getCategory())) { %>
+        전자기기
+        <% } else if ("cloth".equals(post.getCategory())) { %>
+        의류
+        <% } else if ("furniture".equals(post.getCategory())) { %>
+        가구
+        <% } else if ("etc".equals(post.getCategory())) { %>
+        기타
+        <% } else { %>
+        미입력 :
+        <%= post.getCategory() %>
+        <% } %></td></tr>
     <tr><td>글쓴이</td><td><%=post.getWriter()%></td></tr>
     <tr><td>물건</td><td><%=post.getName()%></td></tr>
     <tr><td>가격</td><td><%=post.getPrice()%></td></tr>
